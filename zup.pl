@@ -25,7 +25,8 @@ my $ip_site = "http://checkip.dyndns.com/";
 
 #+-- initialize just in case (our, for bug fix on mac)
 our $oldip = 0; 
-our $wanip = 0;
+my $wanip = 0;
+my $failed = 0;
 
 #+-- define logging function
 sub flog {
@@ -35,8 +36,7 @@ sub flog {
 	close(FILE);
 }
 
-#+-- log run seperator, i like it to seperate runs in logfile
-flog("====================");
+flog("===================="); #+-- instance seperator for logfile
 
 if (! -e $ipfile ) {
 	flog("ERROR: File does not exist: $ipfile");
@@ -54,9 +54,6 @@ sub current_ip {
 		die flog("ERROR: Unable to retreive page!") && exit 1;
 	if ($ip =~ /(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})/) {
 		$wanip = $1;
-		if ($debug == 1) {
-			print "WAN IP Adress: " , $wanip , "\n";
-		}
 	}
 }
 
@@ -69,9 +66,9 @@ sub stored_ip {
 }
 
 current_ip();
-flog("New WAN IP address: $wanip");
+flog("New WAN IP address: " . $wanip);
 stored_ip();
-flog("Old WAN IP address: $oldip");
+flog("Old WAN IP address: " . $oldip);
 
 if ( $wanip ne $oldip ) {
 	flog("It appears that the WAN IP has changed!");
@@ -86,30 +83,52 @@ if ( $wanip ne $oldip ) {
 	#+-- store http response for later use
 	my $zeresponse = $response->content();
 	chomp($zeresponse);
-	flog($zeresponse);
-	
-	#+-- if debugging, show the whole http::request error
-	if($response->is_success) {
-		flog("Successfully updated WAN IP with ZoneEdit.");
-		if($debug == 1) {
-			flog($zeresponse);
-		}
-	} else {
-		flog("ERROR: Unable to update WAN IP with ZoneEdit!");
-		my $fail == 1; # set fail since we will not want to update the storedip
-		if($debug == 1) {
-			flog($zeresponse);
+
+	#+-- print the unformmated http response
+	if($debug == 1) {
+		flog($zeresponse);
+	}
+
+	flog("~~~~~");
+
+	my @sresponse = split(/</, $zeresponse);
+	shift @sresponse;
+	my $sresponse;
+
+	foreach $sresponse (@sresponse) {
+		if ($debug == 1) {
+			flog($sresponse);
+		}	
+		my @fresponse = split(/"/, $sresponse);
+		my $fresponse; 
+		my $e = 0; #start an array element counter
+		
+		foreach $fresponse (@fresponse) {
+			if ($e =~ m/[1357]/) {
+				flog($fresponse[$e]);
+			}
+			$e = $e + 1;
 		}
 	}
 
+	flog("~~~~~");
+
+	#+-- if debugging, show the whole http::request unformatter
+	if($response->is_success) {
+		flog("Successfully updated WAN IP with ZoneEdit.");
+	} else {
+		flog("ERROR: Unable to update WAN IP with ZoneEdit!");
+		$failed = 1; # set fail since we will not want to update the storedip
+	}
+
 	#+-- cleanup stored ip and/or change wan ip in file
-	#if($fail != 1) {
+	if($failed != 1) {
 		open(STORIP, ">$ipfile") or 
 			die flog("ERROR: Unable to open $ipfile!") && exit 1;
 		print STORIP $wanip , "\n";
 		close(STORIP);
 		flog("Stored new WAN IP $wanip to $ipfile");
-	#}
+	}
 } else {
 	flog("WAN IP unchanged.  No update necessary.");
 	exit 0
