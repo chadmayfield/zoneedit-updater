@@ -26,6 +26,26 @@ my $ip_site = "http://checkip.dyndns.com/";
 my $oldip = 0; 
 my $wanip = 0;
 
+sub flog {
+	open(FILE, ">>$logfile") or
+	die flog("ERROR: Unable to open: $logfile. $!") && exit 1;
+	print FILE join(" ", my $timestamp = localtime , ":" , @_ ,"\n");
+	close(FILE);
+}
+
+flog("====================");
+
+if (! -e $ipfile ) {
+	flog("ERROR: File does not exist: $ipfile");
+	exit(1);
+}
+
+if (( ! -w $ipfile ) || ( ! -r $ipfile )) {
+	flog("ERROR: File is not read/writable: $ipfile");
+	exit(1);
+}
+
+
 #+-- check for current wan ip
 sub current_ip {
 	my $ip = get($ip_site) or 
@@ -46,15 +66,6 @@ sub stored_ip {
 	close(STORIP);
 }
 
-#+-- define logging
-sub flog {
-	open(FILE, ">>$logfile") or 
-		die flog("ERROR: Unable to open: $logfile. $!") && exit 1;
-	print FILE join(" ", my $timestamp = localtime , ":" , @_ ,"\n");
-	close(FILE);
-}
-
-flog("====================");
 current_ip();
 flog("New WAN IP address: $wanip");
 stored_ip();
@@ -83,14 +94,19 @@ if ( $wanip ne $oldip ) {
 		}
 	} else {
 		flog("ERROR: Unable to update WAN IP with ZoneEdit!");
-		flog($zeresponse);
+		my $fail == 1;
+		if($debug == 1) {
+			flog($zeresponse);
+		}
 	}
 	#+-- cleanup stored ip and/or change wan ip in file
-	open(STORIP, ">$ipfile") or 
-		die flog("ERROR: Unable to open $ipfile!") && exit 1;
-	print STORIP $wanip , "\n";
-	close(STORIP);
-	flog("Stored new WAN IP $wanip to $ipfile");
+	#if($fail != 1) {
+		open(STORIP, ">$ipfile") or 
+			die flog("ERROR: Unable to open $ipfile!") && exit 1;
+		print STORIP $wanip , "\n";
+		close(STORIP);
+		flog("Stored new WAN IP $wanip to $ipfile");
+	#}
 } else {
 	flog("WAN IP unchanged.  No update necessary.");
 	exit 0
