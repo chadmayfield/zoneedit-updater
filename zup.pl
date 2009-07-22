@@ -1,15 +1,9 @@
 #!/usr/bin/perl
 
-# zoneedit ip update - updates your zoneedit ip with the detect wan
-# ip address for dynamic ip addresses
-# 
-# Author: Chad R Mayfield (http://chadmayfield.com)
-# Date: 07/10/2009
-# License: GPLv3
+# zup - update your zoneedit ip with the detected wan ip address of
+# the host machine.  Specifically for dynamic dns users
 #
-# INFO: http://zoneedit.com/doc/dynamic.html?
-# INFO: http://zoneedit.com/doc/dynamic/
-# http://www.zoneedit.com/doc/dynamic/ReturnCodes.txt
+# Chad R Mayfield (http://www.chadmayfield.com/) July 2009 GPLv3
 
 use strict;
 use warnings;
@@ -68,19 +62,6 @@ flog("Old WAN IP address: $oldip");
 
 if ( $wanip ne $oldip ) {
 	flog("It appears that the WAN IP has changed!");
-
-#TODO
-#	Check response codes and dynamically create updated list
-#	###703 707 707 704 701 200 201 702 705
-#	###(20[01]|70[123457])
-#	my @response_codes = get("http://www.zoneedit.com/doc/dynamic/ReturnCodes.txt");
-#	foreach (@response_codes) {
-#		chomp($_);
-#		if($_ ne  "") {
-#			flog("$_\n");
-#		}
-#	}
-
 
 	#+-- connect to zoneedit and update ip
 	my $ua = new LWP::UserAgent;
