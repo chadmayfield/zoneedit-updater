@@ -24,7 +24,7 @@ my $ip_site = "http://checkip.dyndns.com/";
 ########## end user variables ##########
 
 #+-- initialize just in case (our, for bug fix on mac)
-our $oldip = 0; 
+my $oldip = 0; 
 my $wanip = 0;
 my $failed = 0;
 
