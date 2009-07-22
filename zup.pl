@@ -23,8 +23,8 @@ my $ip_site = "http://checkip.dyndns.com/";
 ### end user variables ###
 
 #+-- initialize just in case
-my $oldip = 0; 
-my $wanip = 0;
+our $oldip = 0; 
+our $wanip = 0;
 
 sub flog {
 	open(FILE, ">>$logfile") or
