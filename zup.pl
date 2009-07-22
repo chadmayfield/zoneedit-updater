@@ -26,13 +26,15 @@ my $ip_site = "http://checkip.dyndns.com/";
 our $oldip = 0; 
 our $wanip = 0;
 
+#+-- define logging function
 sub flog {
 	open(FILE, ">>$logfile") or
-	die flog("ERROR: Unable to open: $logfile. $!") && exit 1;
+		die flog("ERROR: Unable to open: $logfile. $!") && exit 1;
 	print FILE join(" ", my $timestamp = localtime , ":" , @_ ,"\n");
 	close(FILE);
 }
 
+#+-- log run seperator, i like it to seperate runs in logfile
 flog("====================");
 
 if (! -e $ipfile ) {
@@ -44,7 +46,6 @@ if (( ! -w $ipfile ) || ( ! -r $ipfile )) {
 	flog("ERROR: File is not read/writable: $ipfile");
 	exit(1);
 }
-
 
 #+-- check for current wan ip
 sub current_ip {
@@ -78,15 +79,15 @@ if ( $wanip ne $oldip ) {
 	my $ua = new LWP::UserAgent;
 	$ua->agent('Mozilla/5.0 (compatible; Sexbot/1.0; +http://zoneedit.com)'); 
 	$ua->credentials('dynamic.zoneedit.com:80', 'DNS Access', $user, $pass);
-	#my $ip = get("http://dynamic.zoneedit.com/auth/dynamic.html?host=$zones") or 
-	#	die flog("ERROR: Unable to update zones!") && exit 1:w;
 	my $request = new HTTP::Request('GET', "http://dynamic.zoneedit.com/auth/dynamic.html?zones=$zones");
 	my $response = $ua->request($request);	
+	
 	#+-- store http response for later use
 	my $zeresponse = $response->content();
 	chomp($zeresponse);
 	flog($zeresponse);
-	#+-- show the whole error
+	
+	#+-- if debugging, show the whole http::request error
 	if($response->is_success) {
 		flog("Successfully updated WAN IP with ZoneEdit.");
 		if($debug == 1) {
@@ -94,11 +95,12 @@ if ( $wanip ne $oldip ) {
 		}
 	} else {
 		flog("ERROR: Unable to update WAN IP with ZoneEdit!");
-		my $fail == 1;
+		my $fail == 1; # set fail since we will not want to update the storedip
 		if($debug == 1) {
 			flog($zeresponse);
 		}
 	}
+
 	#+-- cleanup stored ip and/or change wan ip in file
 	#if($fail != 1) {
 		open(STORIP, ">$ipfile") or 
