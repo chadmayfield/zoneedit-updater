@@ -1,7 +1,8 @@
 #!/usr/bin/perl
 
 # zup - update your zoneedit ip with the detected wan ip address of
-# the host machine.  Specifically for dynamic dns users
+# the host machine.  specifically for dynamic dns users. should be
+# run from a cronjob for best results.
 #
 # Chad R Mayfield (http://www.chadmayfield.com/) July 2009 GPLv3
 
@@ -11,18 +12,18 @@ use warnings;
 use LWP::UserAgent;
 use LWP::Simple;
 
-### start user variables ###
+########## start user variables ##########
 my $debug = "0"; # not heavily implemented yet
 my $user = "username";
 my $pass = "password";
-my $zones = "first.domain.com,second.domain.com";
+my $zones = "first.domain.com,second.domain.com"; #seperate with comma
 my $logfile = "/tmp/ip.log";
 my $ipfile = "/tmp/ip.txt";
 #my $ip_site = "http://dynamic.zoneedit.com/checkip.html"; #kinda slow
 my $ip_site = "http://checkip.dyndns.com/";
-### end user variables ###
+########## end user variables ##########
 
-#+-- initialize just in case
+#+-- initialize just in case (our, for bug fix on mac)
 our $oldip = 0; 
 our $wanip = 0;
 
