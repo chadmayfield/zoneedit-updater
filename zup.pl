@@ -17,8 +17,8 @@ my $debug = "0"; # not heavily implemented yet
 my $user = "username";
 my $pass = "password";
 my $zones = "first.domain.com,second.domain.com"; #seperate with comma
-my $logfile = "/tmp/ip.log";
-my $ipfile = "/tmp/ip.txt";
+my $logfile = "/var/log/zoneedit/ip.log";
+my $ipfile = "/var/log/zoneedit/ip.txt";
 #my $ip_site = "http://dynamic.zoneedit.com/checkip.html"; #kinda slow
 my $ip_site = "http://checkip.dyndns.com/";
 ########## end user variables ##########

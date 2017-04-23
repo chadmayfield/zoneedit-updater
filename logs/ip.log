@@ -1,0 +1,108 @@
+Thu Oct  1 15:09:01 2009 : ==================== 
+Thu Oct  1 15:09:02 2009 : New WAN IP address: 97.126.220.90 
+Thu Oct  1 15:09:02 2009 : Old WAN IP address: 97.117.83.56 
+Thu Oct  1 15:09:02 2009 : It appears that the WAN IP has changed! 
+Thu Oct  1 15:09:07 2009 : ~~~~~ 
+Thu Oct  1 15:09:07 2009 : 200 
+Thu Oct  1 15:09:07 2009 : Update succeeded. 
+Thu Oct  1 15:09:07 2009 : chadmayfield.com 
+Thu Oct  1 15:09:07 2009 : 97.126.220.90 
+Thu Oct  1 15:09:07 2009 : 200 
+Thu Oct  1 15:09:07 2009 : Update succeeded. 
+Thu Oct  1 15:09:07 2009 : dev.chadmayfield.com 
+Thu Oct  1 15:09:07 2009 : 97.126.220.90 
+Thu Oct  1 15:09:07 2009 : 201 
+Thu Oct  1 15:09:07 2009 : No records need updating. 
+Thu Oct  1 15:09:07 2009 : www.chadmayfield.com 
+Thu Oct  1 15:09:07 2009 : 200 
+Thu Oct  1 15:09:07 2009 : Update succeeded. 
+Thu Oct  1 15:09:07 2009 : ~~~~~ 
+Thu Oct  1 15:09:07 2009 : Successfully updated WAN IP with ZoneEdit. 
+Thu Oct  1 15:09:07 2009 : Stored new WAN IP 97.126.220.90 to /var/log/zup/ip.txt 
+Thu Oct  1 15:09:26 2009 : ~~~~~ 
+Thu Oct  1 15:09:26 2009 : 201 
+Thu Oct  1 15:09:26 2009 : No records need updating. 
+Thu Oct  1 15:09:26 2009 : chadmayfield.com 
+Thu Oct  1 15:09:26 2009 : 201 
+Thu Oct  1 15:09:26 2009 : No records need updating. 
+Thu Oct  1 15:09:26 2009 : dev.chadmayfield.com 
+Thu Oct  1 15:09:26 2009 : 201 
+Thu Oct  1 15:09:26 2009 : No records need updating. 
+Thu Oct  1 15:09:26 2009 : www.chadmayfield.com 
+Thu Oct  1 15:09:26 2009 : 201 
+Thu Oct  1 15:09:26 2009 : No records need updating. 
+Thu Oct  1 15:09:26 2009 : ~~~~~ 
+Thu Oct  1 15:09:26 2009 : Successfully updated WAN IP with ZoneEdit. 
+Thu Oct  1 15:09:26 2009 : Stored new WAN IP 97.126.220.90 to /var/log/zup/ip.txt 
+Thu Oct  1 15:12:01 2009 : ==================== 
+Thu Oct  1 15:12:01 2009 : New WAN IP address: 97.126.220.90 
+Thu Oct  1 15:12:01 2009 : Old WAN IP address: 97.126.220.90 
+Thu Oct  1 15:12:01 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct  1 15:15:01 2009 : ==================== 
+Thu Oct  1 15:15:02 2009 : New WAN IP address: 97.126.220.90 
+Thu Oct  1 15:15:02 2009 : Old WAN IP address: 97.126.220.90 
+Thu Oct  1 15:15:02 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct  1 15:18:01 2009 : ==================== 
+Thu Oct  1 15:18:01 2009 : New WAN IP address: 97.126.220.90 
+Thu Oct  1 15:18:01 2009 : Old WAN IP address: 97.126.220.90 
+Thu Oct  1 15:18:01 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct  1 15:21:01 2009 : ==================== 
+Thu Oct  1 15:21:01 2009 : New WAN IP address: 97.126.220.90 
+Thu Oct  1 15:21:01 2009 : Old WAN IP address: 97.126.220.90 
+Thu Oct  1 15:21:01 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct  1 15:24:01 2009 : ==================== 
+Thu Oct  1 15:24:01 2009 : New WAN IP address: 97.126.220.90 
+Thu Oct  1 15:24:01 2009 : Old WAN IP address: 97.126.220.90 
+Thu Oct  1 15:24:01 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct  1 15:24:01 2009 : ==================== 
+...
+...
+...
+...
+Thu Oct 29 10:33:01 2009 : ==================== 
+Thu Oct 29 10:33:01 2009 : New WAN IP address: 97.117.91.113 
+Thu Oct 29 10:33:01 2009 : Old WAN IP address: 97.117.91.113 
+Thu Oct 29 10:33:01 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct 29 10:36:01 2009 : ==================== 
+Thu Oct 29 10:36:20 2009 : ERROR: Unable to retreive page! 
+Thu Oct 29 10:39:02 2009 : ==================== 
+Thu Oct 29 10:39:07 2009 : New WAN IP address: 97.117.105.120 
+Thu Oct 29 10:39:07 2009 : Old WAN IP address: 97.117.91.113 
+Thu Oct 29 10:39:07 2009 : It appears that the WAN IP has changed! 
+Thu Oct 29 10:39:26 2009 : ~~~~~ 
+Thu Oct 29 10:39:26 2009 : 200 
+Thu Oct 29 10:39:26 2009 : Update succeeded. 
+Thu Oct 29 10:39:26 2009 : chadmayfield.com 
+Thu Oct 29 10:39:26 2009 : 97.117.105.120 
+Thu Oct 29 10:39:26 2009 : 200 
+Thu Oct 29 10:39:26 2009 : Update succeeded. 
+Thu Oct 29 10:39:26 2009 : dev.chadmayfield.com 
+Thu Oct 29 10:39:26 2009 : 97.117.105.120 
+Thu Oct 29 10:39:26 2009 : 201 
+Thu Oct 29 10:39:26 2009 : No records need updating. 
+Thu Oct 29 10:39:26 2009 : www.chadmayfield.com 
+Thu Oct 29 10:39:26 2009 : 200 
+Thu Oct 29 10:39:26 2009 : Update succeeded. 
+Thu Oct 29 10:39:26 2009 : ~~~~~ 
+Thu Oct 29 10:39:26 2009 : Successfully updated WAN IP with ZoneEdit. 
+Thu Oct 29 10:39:26 2009 : Stored new WAN IP 97.117.105.120 to /home/chad/zup/ip.txt 
+Thu Oct 29 10:42:01 2009 : ==================== 
+Thu Oct 29 10:42:01 2009 : New WAN IP address: 97.117.105.120 
+Thu Oct 29 10:42:01 2009 : Old WAN IP address: 97.117.105.120 
+Thu Oct 29 10:42:01 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct 29 10:45:01 2009 : ==================== 
+Thu Oct 29 10:45:01 2009 : New WAN IP address: 97.117.105.120 
+Thu Oct 29 10:45:01 2009 : Old WAN IP address: 97.117.105.120 
+Thu Oct 29 10:45:01 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct 29 10:48:01 2009 : ==================== 
+Thu Oct 29 10:48:02 2009 : New WAN IP address: 97.117.105.120 
+Thu Oct 29 10:48:02 2009 : Old WAN IP address: 97.117.105.120 
+Thu Oct 29 10:48:02 2009 : WAN IP unchanged.  No update necessary. 
+Thu Oct 29 10:51:01 2009 : ==================== 
+Thu Oct 29 10:51:01 2009 : New WAN IP address: 97.117.105.120 
+Thu Oct 29 10:51:01 2009 : Old WAN IP address: 97.117.105.120 
+Thu Oct 29 10:51:01 2009 : WAN IP unchanged.  No update necessary.
+Thu Oct 29 10:51:01 2009 : ====================
+...
+...
+...
